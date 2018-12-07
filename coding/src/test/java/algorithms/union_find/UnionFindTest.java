@@ -22,6 +22,7 @@ public class UnionFindTest {
         Assert.assertTrue(myUF.connected(8, 9));
         Assert.assertTrue(myUF.connected(1, 7));
         Assert.assertFalse(myUF.connected(0, 7));
+        Assert.assertTrue(myUF.countComponents() == 3);
     }
 
     private UF generateUF() {

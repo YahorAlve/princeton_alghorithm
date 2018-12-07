@@ -1,5 +1,8 @@
 package algorithms.union_find;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class QuickFindUF implements UF {
 
     private int[] array;
@@ -16,9 +19,9 @@ public class QuickFindUF implements UF {
         int first = array[p];
         int second = array[q];
         if (first != second) {
-            for (int i : array) {
-                if (i == second){
-                    i = first;
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] == second){
+                    array[i] = first;
                 }
             }
         }
@@ -31,11 +34,15 @@ public class QuickFindUF implements UF {
 
     @Override
     public int findComponent(int p) {
-        return 0;
+        return array[p];
     }
 
     @Override
     public int countComponents() {
-        return 0;
+        Set components = new HashSet();
+        for (int i: array) {
+            components.add(i);
+        }
+        return components.size();
     }
 }
